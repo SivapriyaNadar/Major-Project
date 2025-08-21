@@ -1,0 +1,88 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            <h3 >Create a New Listing</h3>
+            <br>
+            <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label"><b>Title</b></label>
+                    <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" id="title" required>
+                    <div class="invalid-feedback">Please enter title </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label"><b>Description</b></label>
+                    <textarea name="listing[description]" placeholder="enter description" type="text" class="form-control" id="description" required></textarea>
+                    <div class="invalid-feedback">Please enter a short description </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="image" class="form-label"><b>Upload Image</b></label>
+                    <input name="listing[image]" type="file" class="form-control" id="image" required>
+                </div>
+
+                <div class="row">
+
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label"><b>Price</b></label>
+                        <input name="listing[price]"  placeholder="1200" class="form-control" id="price" required>
+                        <div class="invalid-feedback">Please enter price.</div>
+                    </div>
+
+                    <div class="mb-3 col-md-8" >
+                        <label for="country" class="form-label"><b>Country</b></label>
+                        <input name="listing[country]" placeholder="India" type="text" class="form-control" id="country" required>
+                        <div class="invalid-feedback">Please enter country name.</div>
+                    </div>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label"><b>Location</b></label>
+                    <input name="listing[location]" placeholder="Jaipur, Rajasthan" type="text" class="form-control" id="location" required>
+                    <div class="invalid-feedback">Please enter location.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label"><b>Category</b></label><br>
+                    <p><i class="fa-solid fa-circle-exclamation"></i><i>(Cannot change category after creation of Listing.)</i></p>
+                    <div class="btn-group dropend">
+                        <button type="button" class="btn dropdn btn-outline dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-required="true">
+                            Select Category of the Place
+                        </button>
+                        <ul class="dropdown-menu" aria-required="true" aria-labelledby="dropdownMenuButton">
+                            <li class="dropdown-item" value="Rooms">Room</li>
+                            <li class="dropdown-item" value="IconicCity">Iconic City</li>
+                            <li class="dropdown-item" value="Mountains">Mountains</li>
+                            <li class="dropdown-item" value="Pools">Pool</li>
+                            <li class="dropdown-item" value="Camp">Camping</li>
+                            <li class="dropdown-item" value="Farms">Farm</li>
+                            <li class="dropdown-item" value="Arctic">Arctic Place</li>
+                            <li class="dropdown-item" value="Boats">Boat</li>
+                            <li class="dropdown-item" value="Beach">Beach</li>
+                        </ul>
+                        <div class="invalid-feedback">Please enter Category.</div>
+                    </div>
+                    <input type="hidden" name="listing[category]" id="categoryInp">
+                </div>
+
+
+                <br>
+                <button class="btn btn-dark add-btn">Add</button>
+                <br /><br><br>
+            </form>
+        </div>
+    </div>
+
+<script>
+    document.querySelectorAll(".dropdown-item").forEach(item => {
+        item.addEventListener("click", function(e){
+            e.preventDefault();
+            let selectedValue = this.getAttribute("value");
+            document.getElementById("categoryInp").value = selectedValue;
+            document.getElementById("dropdownMenuButton").innerText = this.innerText;
+        });
+    });
+</script>
+

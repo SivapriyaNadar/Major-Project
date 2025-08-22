@@ -15,6 +15,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
+// const wrapAsync = require("../utils/wrapAsync.js");
 
 //routers
 const listingRouter = require("./routes/listings.js");
@@ -115,9 +116,9 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
 
-// app.all("*", (req, res, next) => {
-//     next(new ExpressError(404, "Page Not Found!"));
-// });
+app.use((req, res, next) => {
+    next(new ExpressError(404, "Page Not Found!"));
+});
 
 
 //Error Handling Middleware

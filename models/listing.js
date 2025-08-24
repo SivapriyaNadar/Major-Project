@@ -28,7 +28,7 @@ const listeningSchema = new Schema({
     },
     category: {
         type: String,
-        enum: ["Rooms", "IconicCity", "Mountains", "Pools", "Camp", "Farms", "Arctic", "Boats", "Beach"],
+        enum: ["Rooms", "IconicCity", "Mountains", "Pools", "Camp", "Farms", "Arctic", "Boats", "Beach", "Others"],
         required: true,
     },
 });

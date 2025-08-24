@@ -24,20 +24,36 @@ const userRouter = require("./routes/user.js");
 
 //mongodb connection
 // const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+// const dbUrl = process.env.ATLASDB_URL;
+
+// main()
+//     .then((res)=>{
+//         console.log("connection successfull");
+//     })
+//     .catch((err)=>{
+//         console.log(err);
+//     })
+
+// async function main() {
+//     // await mongoose.connect(MONGO_URL);
+//     await mongoose.connect(dbUrl);
+// }
+
 const dbUrl = process.env.ATLASDB_URL;
 
-main()
-    .then((res)=>{
-        console.log("connection successfull");
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
-
 async function main() {
-    // await mongoose.connect(MONGO_URL);
-    await mongoose.connect(dbUrl);
+    try {
+        await mongoose.connect(dbUrl, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("✅ Connected to MongoDB Atlas");
+    } catch (err) {
+        console.error("❌ MongoDB Atlas connection error:", err);
+    }
 }
+main();
+
 
 //using EJS, serving public folder, urlEncode, and methodOverride
 app.set("view engine","ejs");
@@ -93,6 +109,7 @@ passport.deserializeUser(User.deserializeUser());
 //     res.locals.currUser = req.user;
 //     next();
 // });
+
 app.use((req, res, next) => {
     res.locals.success = req.flash("success") || [];
     res.locals.error = req.flash("error") || [];

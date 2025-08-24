@@ -7,6 +7,7 @@ body {
 
 .container {
     flex: 1;
+    padding: 0 1rem 1rem 1rem;
 }
 
 textarea {
@@ -16,8 +17,8 @@ textarea {
 
 /* Navbar */
 .navbar {
-    height: 5rem;
     background-color: white;
+    height: auto;
 }
 
 .fa-compass {
@@ -39,6 +40,7 @@ textarea {
     color: #ffffff;
     border-radius: 25px;
     padding: 0 1rem 0 1rem;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.596);
 }
 
 .search-btn:hover {
@@ -48,13 +50,13 @@ textarea {
 
 .search-btn i {
     display: inline;
-    margin-right: 0.5rem;
 }
 
 .search-inp {
     border-radius: 25px;
-    padding: 0.5rem 1rem 0.5rem 3rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     font-size: 1rem;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.596);
 }
 
 
@@ -91,6 +93,10 @@ textarea {
     flex-wrap: wrap;
 }
 
+.space-footer {
+    background-color: #ebebeb;
+}
+
 /* cards */
 .listing-card {
     border: none !important;
@@ -101,6 +107,7 @@ textarea {
     border-radius: 1rem !important;
     width: 100% ;
     object-fit: cover !important ;
+    height:15rem;
 }
 
 .card-body {
@@ -122,6 +129,17 @@ textarea {
 .card-img-overlay:hover {
     opacity: 0.2;
     background-color: white;
+}
+
+.overlay{
+    position: absolute;
+    top: 1rem;
+    left:1rem;
+    color: rgba(0, 0, 0, 0.514);
+    border: 1px #e9e9e9be solid;
+    border-radius: 2rem;
+    padding: 0 1rem;
+    background-color: #e9e9e9be;
 }
 
 /* new page */
@@ -160,47 +178,89 @@ textarea {
 
 /*Filter*/
 #filters {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  
+    overflow-x: auto;           
+    white-space: nowrap;           
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 0;    
+}
 
-    .filter{
-        text-align: center;
-        margin-right: 2rem;
-        margin-top: 2rem;
-        opacity: 0.7;
-    }
+.filter{
+    text-align: center;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    opacity: 0.7;
+    flex: 0 0 auto;
+}
 
-    .filter:hover {
-        opacity: 1;
-        cursor: pointer;
-    }
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
 
-    .filter p {
-        font-size: 0.8rem;
-    }
+.filter p {
+    font-size: 0.8rem;
+}
 
-    .tax-info {
-        display: none;
-    }
+ .tax-info {
+    display: none;
+}
 
-    .tax-toggle {
-        border: 1px solid rgb(116, 112, 112);
-        border-radius: 1rem;
-        height: 3.25rem;
-        padding: 1rem;
-        margin-left: 2rem;
-        display: flex;
-        align-items: center;
-    }
+.filterAndTax{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
-    .filter-link {
-        text-decoration: none;
-        color: #222222;
-    }
+.tax-toggle {
+    border: 1px solid rgb(116, 112, 112);
+    border-radius: 1rem;
+    height: 3.25rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tax{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    justify-content: end;
+}
+
+.filter-link {
+    text-decoration: none;
+    color: #222222;
+}
 
     /* Dropdown */
-    .dropdn {
-        border-color: black !important;
+.dropdn {
+    border-color: black !important;
+}
+
+/* Index pg media query */
+@media(max-width:992px){
+    .tax{
+        width: 100%;
     }
+    .tax-toggle{
+        width: 100%;
+    }
+}
+
+@media(max-width:400px){
+    .card-img-top{
+        height: 10rem;
+    }
+    .filter{
+    margin-right: 1rem;
+    margin-top: 1.5rem;
+    }
+    .logo{
+        padding-top: 1rem;
+    }
+    
+}

@@ -249,7 +249,32 @@ textarea {
     .tax-toggle{
         width: 100%;
     }
+    .three-dot {
+        display: flex;
+        justify-content: start !important;
+    }
 }
+
+/* > Medium (md) */
+@media(max-width:767px){
+    .logo{
+        padding-top: 1rem;
+    }
+    .forMd {
+        display: inline-block;
+        padding-left:0.5rem ;
+    }
+    .three-dot {
+        display: none;
+    }
+}
+/* <md */
+@media(min-width:767px){
+.forMd {
+    display: none;
+}
+}
+
 
 @media(max-width:400px){
     .card-img-top{
@@ -259,8 +284,49 @@ textarea {
     margin-right: 1rem;
     margin-top: 1.5rem;
     }
-    .logo{
-        padding-top: 1rem;
+    .search-inp{
+        margin-left: 0.5rem;
     }
     
 }
+
+.rating-color {
+    color: rgb(208, 208, 52) !important;
+    font-size: 1.3rem !important;
+}
+
+.star-color {
+    font-size: 1.3rem !important;
+    color: gray;
+}
+
+.profile {
+    margin-top: 0.7rem;
+    font-size: 1.3rem;
+}
+
+.userProf {
+    text-align: center;
+}
+
+.anchor {
+    text-decoration: none;
+    color: #000;
+}
+
+.profile-picture {
+    font-size: 7rem;
+
+}
+
+.userInfo {
+    width: 70%;
+    margin: auto;
+}
+
+@media(min-width:991px){
+.host {
+    margin-top: 0.4rem;
+}
+}
+

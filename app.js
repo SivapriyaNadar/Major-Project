@@ -35,8 +35,8 @@ const userRouter = require("./routes/user.js");
 //     })
 
 // async function main() {
-//     // await mongoose.connect(MONGO_URL);
-//     await mongoose.connect(dbUrl);
+//     await mongoose.connect(MONGO_URL);
+//     // await mongoose.connect(dbUrl);
 // }
 
 const dbUrl = process.env.ATLASDB_URL;
@@ -54,7 +54,6 @@ async function main() {
 }
 main();
 
-
 //using EJS, serving public folder, urlEncode, and methodOverride
 app.set("view engine","ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -66,6 +65,7 @@ app.use(methodOverride("_method"));
 //session-store
 const store = MongoStore.create({
     mongoUrl: dbUrl,
+    // mongoUrl:  MONGO_URL,
     crypto: {
         secret: process.env.SECRET,
     },

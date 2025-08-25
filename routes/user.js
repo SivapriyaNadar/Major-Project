@@ -39,4 +39,29 @@ router.get(
     userController.logout
 );
 
+//User profile
+router
+    .route("/userprofile/:userId")
+    //view user prof
+    .get(
+        userController.userProfile
+    )
+    //update user info
+    .post(
+        userController.userProfileUpdation
+    )
+
+//render edit form
+router
+    .get(
+        "/userprofile/:userId/editUser",
+        userController.renderEditUserForm
+    )
+
+router
+.get("/host",
+    userController.hostNew,
+)
+
+
 module.exports = router;

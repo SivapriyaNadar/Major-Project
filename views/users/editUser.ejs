@@ -1,0 +1,46 @@
+<% layout("/layouts/boilerplate") %>
+<% layout("/layouts/boilerplate") %>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            <h3>Edit User Information</h3>
+            <br>
+            <form method="post" action="/userprofile/<%= userId %>" novalidate class="needs-validation">
+                <div class="mb-3">
+                    <label for="username" class="form-label"><b>Username</b></label>
+                    <input name="user[username]" placeholder="Add a catchy title" type="text" class="form-control" id="username" required>
+                    <div class="invalid-feedback">Please enter Username.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="name" class="form-label"><b>Name</b></label>
+                    <textarea name="user[name]" placeholder="enter your full name" type="text" class="form-control" id="name"></textarea>
+                </div>
+                
+                <!-- <div class="mb-3">
+                    <label for="profilePic" class="form-label"><b>Upload Profile Picture</b></label>
+                    <input name="user[profilePic]" type="file" class="form-control" id="profilePic">
+                </div> -->
+
+                <div class="mb-3">
+                    <label for="address" class="form-label"><b>Address</b></label>
+                    <input name="user[address]" placeholder="Jaipur, Rajasthan" type="text" class="form-control" id="address">
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label"><b>Phone No.</b></label>
+                    <input name="user[phone]" placeholder="enter phone no." type="text" class="form-control" id="phone">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label"><b>Email</b></label>
+                    <input name="user[email]" placeholder="enter your email." type="email" class="form-control" id="email">
+                </div>
+
+                <br>
+                <button class="btn btn-dark add-btn">Submit</button>
+                <br /><br><br>
+            </form>
+        </div>
+    </div>
+

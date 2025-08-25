@@ -47,7 +47,26 @@
                 <div class="mb-3">
                     <label for="category" class="form-label"><b>Category</b></label><br>
                     <p><i class="fa-solid fa-circle-exclamation"></i><i>(Cannot change category after creation of Listing.)</i></p>
-                    <div class="btn-group dropend">
+
+                    <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Place Category
+                    </button>
+                    <ul class="dropdown-menu" aria-required="true" aria-labelledby="dropdownMenuButton">
+                            <li class="dropdown-item" value="Rooms">Room</li>
+                            <li class="dropdown-item" value="IconicCity">Iconic City</li>
+                            <li class="dropdown-item" value="Mountains">Mountains</li>
+                            <li class="dropdown-item" value="Pools">Pool</li>
+                            <li class="dropdown-item" value="Camp">Camping</li>
+                            <li class="dropdown-item" value="Farms">Farm</li>
+                            <li class="dropdown-item" value="Arctic">Arctic Place</li>
+                            <li class="dropdown-item" value="Boats">Boat</li>
+                            <li class="dropdown-item" value="Beach">Beach</li>
+                            <li class="dropdown-item" value="Others">Others</li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="btn-group dropend">
                         <button type="button" class="btn dropdn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-required="true">
                             Select Category of the Place
                         </button>
@@ -64,7 +83,7 @@
                             <li class="dropdown-item" value="Others">Others</li>
                         </ul>
                         <div class="invalid-feedback">Please enter Category.</div>
-                    </div>
+                    </div> -->
                     <input type="hidden" name="listing[category]" id="categoryInp">
                 </div>
 

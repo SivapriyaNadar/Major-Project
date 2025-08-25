@@ -1,0 +1,57 @@
+<% layout("/layouts/boilerplate") %>
+<div class="userProf mb-5">
+    <div class="profile-picture">
+        <i class="fa-solid fa-circle-user "></i>
+    </div>
+    
+        <h4><%= userInfo.username %></h4>
+  
+    <div class="userBtns">
+        <form method="get" action="/userprofile/<%= userInfo._id %>/editUser">
+            <button class="btn btn-light mt-2">Edit User Information.</button>
+        </form>
+    </div>
+    <div class="userInfo mt-5">
+        <table class="table">
+            <tbody>
+                <tr>
+                <th scope="row">Name</th>
+                <td><% if(!userInfo.name){ %>
+                    -
+                    <% } %>
+                    <%= userInfo.name %>
+                </td>
+                </tr>
+
+                <tr>
+                <th scope="row">Address</th>
+                <td><% if(!userInfo.address){ %>
+                    -
+                    <% } %>
+                    <%= userInfo.address %>
+                </td>
+                </tr>
+
+                <tr>
+                <th scope="row" >Phone No: </th>
+                <td>
+                    <% if(!userInfo.phoneNo){ %>
+                    -
+                    <% } %>
+                    <%= userInfo.phoneNo %>
+                </td>
+                </tr>
+
+                <tr>
+                <th scope="row">Email: </th>
+                <td>
+                    <% if(!userInfo.email){ %>
+                    -
+                    <% } %>
+                    <%= userInfo.email   %>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

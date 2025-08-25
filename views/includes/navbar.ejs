@@ -14,26 +14,54 @@
     </button>
     
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-
-      <div class="navbar-nav ms-auto" style="display: inline;">
-      <a class="nav-link red logo"  href="/listings"><i class="fa-solid fa-compass"></i>&nbsp;<h4 style="display: inline-block;"><b>Wanderlust</b></h4></a>
-
-    
+      <div class="navbar-nav" style="margin-left: auto;" >
+        <a class="nav-link red logo"  href="/listings"><i class="fa-solid fa-compass"></i>&nbsp;<h4 style="display: inline-block;"><b>Wanderlust</b></h4></a>
       </div>
-
-      
-      
-
-
-      <div class="navbar-nav ms-auto">
+    
+      <div class="navbar-nav" style="margin-left: auto;">
         <a class="nav-link" href="/listings/new">Create new Listing</a>
         
-        <% if (typeof currUser !== "undefined" && currUser) { %>
-          <a class="nav-link" href="/logout">Logout</a>
-        <% } else { %>
-          <a class="nav-link" href="/signup">Sign Up</a>
-          <a class="nav-link" href="/login">Login</a>
-        <% } %>
+        <!-- <form method="get" action="/host">
+          <button class="btn btn-light">Become a host</button>
+        </form> -->
+
+        <div class="btn-group dropstart">
+          <button class="btn three-dot" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <% if (typeof currUser !== "undefined" && currUser) { %>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              <div>
+                <li>
+                  <a href="/userprofile/<%= currUser._id %>" class="dropdown-item">
+                    <i class="fa-solid fa-circle-user profile"></i>
+                  </a>
+                </li>
+              </div>
+            <% } else { %>
+              <li><a class="dropdown-item" href="/login">Login</a></li>
+              <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
+            <% } %>
+          </ul>
+        </div>
+
+          <div class="forMd">
+            <% if (typeof currUser !== "undefined" && currUser) { %>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              <div>
+                <li>
+                  <a href="/userprofile/<%= currUser._id %>" class="dropdown-item">
+                    <i class="fa-solid fa-circle-user profile"></i>
+                  </a>
+                </li>
+              </div>
+            <% } else { %>
+              <li><a class="dropdown-item" href="/login">Login</a></li>
+              <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
+            <% } %>
+          </div>
+
       </div>
 
     </div>
